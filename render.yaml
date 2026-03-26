@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: reelwise
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_WHATSAPP_NUMBER
+        sync: false
+      - key: MY_WHATSAPP_NUMBER
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_SHEETS_CREDS_JSON
+        sync: false
+      - key: SPREADSHEET_NAME
+        value: ReelQueue
